@@ -4,9 +4,9 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const app = express();
 
-/*mongoose
+mongoose
   .connect(
-    //"mongodb+srv://",
+    "mongodb+srv://MongoUser1:mongodb123@mobilebackendlavish-r6t5a.gcp.mongodb.net/test",
     {
       useUnifiedTopology: true,
       useNewUrlParser: true
@@ -15,7 +15,7 @@ const app = express();
   .then(() => console.log("DB Connected!"))
   .catch(err => {
     console.log("DB Connection Error:", err.message);
-  });*/
+  });
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
