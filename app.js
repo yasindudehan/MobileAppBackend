@@ -3,10 +3,11 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const app = express();
+require('dotenv').config();
 
 mongoose
   .connect(
-    "mongodb+srv://MongoUser1:mongodb123@mobilebackendlavish-r6t5a.gcp.mongodb.net/test",
+    `${process.env.DBURL}`,
     {
       useUnifiedTopology: true,
       useNewUrlParser: true
