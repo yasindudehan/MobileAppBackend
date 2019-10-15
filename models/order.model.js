@@ -46,8 +46,8 @@ const OrderSchema = mongoose.Schema({
             "Qty":0,
             "Rate":0,
             "Value":0
-        },"
-        Tea Pouch 400 g":{
+        },
+        "Tea Pouch 400 g":{
             "Weight":"400 g",
             "Qty":0,
             "Rate":0,
