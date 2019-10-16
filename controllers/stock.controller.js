@@ -4,6 +4,8 @@ exports.submit = (req,res) => {
     
     const stock = new Stock({
 
+        _id: new mongoose.Types.ObjectId(),
+
         stockno: req.body.stockno,
         repname:  req.body.repname,
         distname:req.body.distname,
@@ -136,7 +138,7 @@ exports.submit = (req,res) => {
 
  });
   
-    stock
+    stocks
     .save()
     .then(result => {
       console.log(result);
@@ -145,7 +147,6 @@ exports.submit = (req,res) => {
   res.status(200).json({
     message: "post your data"
   });  
-
 
 
 

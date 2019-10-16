@@ -128,6 +128,7 @@ exports.submit = (req, res) => {
     qut: req.body.qut,
     price: req.body.price
   });
+  
   order
     .save()
     .then(result => {
