@@ -2,17 +2,17 @@ const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+
+const orderRouter = require("./routes/order.routes");
 const app = express();
-require('dotenv').config();
+
+require("dotenv").config();
 
 mongoose
-  .connect(
-    `${process.env.DBURL}`,
-    {
-      useUnifiedTopology: true,
-      useNewUrlParser: true
-    }
-  )
+  .connect(`${process.env.DBURL}`, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+  })
   .then(() => console.log("DB Connected!"))
   .catch(err => {
     console.log("DB Connection Error:", err.message);
@@ -32,6 +32,7 @@ app.use((req, res, next) => {
   }
   next();
 });
+app.use("", orderRouter);
 
 app.use((req, res, next) => {
   const error = new Error("404 Not found");
