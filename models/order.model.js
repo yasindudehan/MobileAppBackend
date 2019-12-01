@@ -193,7 +193,7 @@ const orderSchema = new Schema({
     qut: { type: Number, required: true, default: 0 },
     price: { type: Number, required: true, default: 0 }
   },
-  teabasket2: {
+  teabasket2: { 
     name: { type: String, required: true, default: "Tea Basket BP-l" },
     weight: { type: String, required: true, default: "4kg" },
     qut: { type: Number, required: true, default: 0 },
