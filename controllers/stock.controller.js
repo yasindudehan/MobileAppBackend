@@ -138,7 +138,7 @@ exports.submit = (req,res) => {
 
  });
   
-    stocks
+
     .save()
     .then(result => {
       console.log(result);
@@ -151,5 +151,5 @@ exports.submit = (req,res) => {
 
 
 
-};
 
+};
