@@ -138,7 +138,7 @@ exports.submit = (req,res) => {
 
  });
   
-    stock
+
     .save()
     .then(result => {
       console.log(result);
@@ -147,6 +147,7 @@ exports.submit = (req,res) => {
   res.status(200).json({
     message: "post your data"
   });  
+
 
 
 
