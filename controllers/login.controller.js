@@ -1,23 +1,18 @@
-const bcrypt = require("bcryptjs");
+const mongoose = require("mongoose");
 const Login = require("../models/login.model.js");
 
-exports.submit = (req,res) => {
+exports.submit3 = (req,res) => {
 
     
     const login = new Login({
-
-        
+      
 
         Username: req.body.Username,
+        Password: req.body.Password
         
         
     });
-/*	bcrypt.genSalt(10,(err,salt) => {
-         bcrypt.hash(login .password,salt,(err,hash) => {
-            if(err)
-                throw err;
-            login.password = hash;
-			login
+    login
     .save()
     .then(result => {
       console.log(result);
@@ -25,9 +20,11 @@ exports.submit = (req,res) => {
     .catch(err => console.log(err));
   res.status(200).json({
     message: "post your data"
-  });  
-*/
+  });
+};
 
 
 
-         }
+
+
+         

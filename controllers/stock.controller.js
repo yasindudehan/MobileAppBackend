@@ -1,4 +1,6 @@
 const Stock = require("../models/stock.model.js");
+const mongoose = require("mongoose");
+
 exports.submit = (req,res) => {
 
     
@@ -139,7 +141,7 @@ exports.submit = (req,res) => {
  });
   
 
-    .save()
+    stock.save()
     .then(result => {
       console.log(result);
     })

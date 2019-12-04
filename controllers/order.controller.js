@@ -128,7 +128,6 @@ exports.submit = (req, res) => {
     qut: req.body.qut,
     price: req.body.price
   });
-  
   order
     .save()
     .then(result => {
@@ -136,6 +135,6 @@ exports.submit = (req, res) => {
     })
     .catch(err => console.log(err));
   res.status(200).json({
-    message: "post your data"
+    message: "Does not post your data"
   });
 };

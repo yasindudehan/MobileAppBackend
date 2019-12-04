@@ -4,6 +4,9 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const orderRouter = require("./routes/order.routes");
+/*const loginRouter = require("./routes/order.routes");
+const stockRouter = require("./routes/login.routes");*/
+
 const app = express();
 
 require("dotenv").config();
@@ -33,6 +36,8 @@ app.use((req, res, next) => {
   next();
 });
 app.use("", orderRouter);
+/*app.use("",loginRouter);
+app.use("",stockRouter);*/
 
 app.use((req, res, next) => {
   const error = new Error("404 Not found");
