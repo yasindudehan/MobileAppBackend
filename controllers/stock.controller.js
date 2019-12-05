@@ -12,8 +12,8 @@ exports.submit = (req,res) => {
         repname:  req.body.repname,
         distname:req.body.distname,
         dateandtime: req.body.dateandtime,
-        product:req.body.product,
-        imestamps:req.body.imestamps,
+       // product:req.body.product,
+       // imestamps:req.body.imestamps,
 
 
         teapouch20: req.body.teapouch20,
@@ -140,15 +140,19 @@ exports.submit = (req,res) => {
 
  });
   
-
-    stock.save()
-    .then(result => {
-      console.log(result);
-    })
-    .catch(err => console.log(err));
-  res.status(200).json({
-    message: "post your data"
-  });  
+    stock
+        .save()
+        .then(result => {
+            console.log(result);
+            res.status(200).json(result);
+        })
+        .catch(err => {
+            console.log(err);
+            return res.status(400).json(err);
+        );
+//   res.status(200).json({
+//     message: "post your data"
+//   });  
 
 
 
