@@ -1,7 +1,7 @@
 const Stock = require("../models/stock.model.js");
 const mongoose = require("mongoose");
 
-exports.submit = (req,res) => {
+exports.stockAdd = (req,res) => {
 
     
     const stock = new Stock({
