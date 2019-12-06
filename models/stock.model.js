@@ -1,8 +1,9 @@
 const mongoose= require('mongoose');
 
 const Schema = mongoose.Schema;
-const StockSchema = mongoose.Schema({
+const StockSchema = new Schema({
 
+<<<<<<< HEAD
   _id: mongoose.Schema.Types.ObjectId,
 
     stockno: { type: String, required: true}, 
@@ -13,8 +14,26 @@ const StockSchema = mongoose.Schema({
     timestamps:{
       type: Date,
       required: true,
+=======
+    _id: mongoose.Schema.Types.ObjectId,
+    stockno: { 
+      type: String,
+      required: true
+    }, 
+    repname: {
+      type: String,
+      required: true
+    },   
+    distname: {
+      type: String,
+      required: true
+    }, 
+    dateandtime: {
+      type: Date,
+      required: true,
+      default:Date.now
+>>>>>>> 6699ef03781a2ffd9cd80b7c39b2e1639d37db2a
     },
-
     teapouch20: {
       name: { type: String, default: "tea pouch" },
       weight: { type: String, default: "20g" },
@@ -48,7 +67,6 @@ const StockSchema = mongoose.Schema({
     teapouch1kg1: {
       name: {
         type: String,
-  
         default: " Tea pouch Premium Quality"
       },
       weight: { type: String, default: "1kg" },
@@ -58,7 +76,6 @@ const StockSchema = mongoose.Schema({
     teapouch1kg2: {
       name: {
         type: String,
-  
         default: "Tea pouch Export Quality"
       },
       weight: { type: String, required: true, default: "1kg" },
@@ -199,11 +216,10 @@ const StockSchema = mongoose.Schema({
       qut: { type: Number, required: true, default: 0 },
       price: { type: Number, required: true, default: 0 }
     },
-  
-
-
-    
-   
-  });
+  },
+  {
+    timestamps:true
+  }
+  );
 
   module.exports = mongoose.model("stocks", StockSchema);

@@ -1,7 +1,13 @@
 const Stock = require("../models/stock.model.js");
 const mongoose = require("mongoose");
 
+<<<<<<< HEAD
 exports.submit = (req,res) => {
+=======
+exports.stockAdd = (req,res) => {
+
+    
+>>>>>>> 6699ef03781a2ffd9cd80b7c39b2e1639d37db2a
     const stock = new Stock({
 
         _id: new mongoose.Types.ObjectId(),
@@ -10,8 +16,8 @@ exports.submit = (req,res) => {
         repname:  req.body.repname,
         distname:req.body.distname,
         dateandtime: req.body.dateandtime,
-        product:req.body.product,
-        imestamps:req.body.imestamps,
+       // product:req.body.product,
+       // imestamps:req.body.imestamps,
 
 
         teapouch20: req.body.teapouch20,
@@ -38,6 +44,7 @@ exports.submit = (req,res) => {
         teabottle: req.body.teabottle,
         teabasket1: req.body.teabasket1,
         teabasket2: req.body.teabasket2,
+<<<<<<< HEAD
   });
   stock.save()
     .then(result => {
@@ -47,4 +54,32 @@ exports.submit = (req,res) => {
   res.status(200).json({
     message: " Does not post your data"
   });  
+=======
+        name: req.body.name,
+        weight: req.body.weight,
+        qut: req.body.qut,
+        price: req.body.price,
+
+
+ });
+  
+    stock
+        .save()
+        .then(result => {
+            console.log(result);
+            res.status(200).json(result);
+        })
+        .catch(err => {
+            console.log(err);
+            return res.status(400).json(err);
+        );
+//   res.status(200).json({
+//     message: "post your data"
+//   });  
+
+
+
+
+
+>>>>>>> 6699ef03781a2ffd9cd80b7c39b2e1639d37db2a
 };
