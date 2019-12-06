@@ -3,7 +3,6 @@ const mongoose= require('mongoose');
 const Schema = mongoose.Schema;
 const StockSchema = new Schema({
 
-<<<<<<< HEAD
   _id: mongoose.Schema.Types.ObjectId,
 
     stockno: { type: String, required: true}, 
@@ -14,25 +13,6 @@ const StockSchema = new Schema({
     timestamps:{
       type: Date,
       required: true,
-=======
-    _id: mongoose.Schema.Types.ObjectId,
-    stockno: { 
-      type: String,
-      required: true
-    }, 
-    repname: {
-      type: String,
-      required: true
-    },   
-    distname: {
-      type: String,
-      required: true
-    }, 
-    dateandtime: {
-      type: Date,
-      required: true,
-      default:Date.now
->>>>>>> 6699ef03781a2ffd9cd80b7c39b2e1639d37db2a
     },
     teapouch20: {
       name: { type: String, default: "tea pouch" },

@@ -4,11 +4,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const orderRouter = require("./routes/order.routes");
-<<<<<<< HEAD
 const loginRouter = require("./routes/login.routes");
-=======
-//const loginRouter = require("./routes/order.routes");
->>>>>>> 6699ef03781a2ffd9cd80b7c39b2e1639d37db2a
 const stockRouter = require("./routes/stock.routes");
 
 const app = express();
@@ -39,13 +35,8 @@ app.use((req, res, next) => {
   }
   next();
 });
-<<<<<<< HEAD
 app.use("/login",loginRouter);
 app.use("/order", orderRouter);
-=======
-app.use("", orderRouter);
-//app.use("",loginRouter);
->>>>>>> 6699ef03781a2ffd9cd80b7c39b2e1639d37db2a
 app.use("/stock",stockRouter);
 
 app.use((req, res, next) => {
