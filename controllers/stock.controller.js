@@ -147,7 +147,7 @@ exports.submit = (req,res) => {
     })
     .catch(err => console.log(err));
   res.status(200).json({
-    message: "post your data"
+    message: " Does not post your data"
   });  
 
 
