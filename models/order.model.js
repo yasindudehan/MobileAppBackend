@@ -206,7 +206,7 @@ const orderSchema = new Schema({
   },
   orderDate: {
     type: Date,
-    default: Date.now
+    default: Date.now()
   }
 });
 module.exports = mongoose.model("Order", orderSchema);

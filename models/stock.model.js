@@ -11,8 +11,8 @@ const StockSchema = mongoose.Schema({
     dateandtime: {type: Date,required: true},
 
     timestamps:{
+      type: Date,
       required: true,
-
     },
 
     teapouch20: {
