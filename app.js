@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const orderRouter = require("./routes/order.routes");
 const loginRouter = require("./routes/login.routes");
 const stockRouter = require("./routes/stock.routes");
-
+const customer = require("./routes/customer.routes");
 const app = express();
 
 require("dotenv").config();
@@ -38,7 +38,7 @@ app.use((req, res, next) => {
 app.use("/login",loginRouter);
 app.use("/order", orderRouter);
 app.use("/stock",stockRouter);
-
+app.use("", customer);
 app.use((req, res, next) => {
   const error = new Error("404 Not found");
   error.status = 404;
