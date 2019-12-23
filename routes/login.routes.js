@@ -1,7 +1,8 @@
 const express=require("express");
 const router=express.Router();
-const stock=require("../controllers/login.controller.js");
+const login=require("../controllers/login.controller.js");
 
-router.post('/submit',login.submit);
+router.post('/signUp',login.signUp);
+router.post('/signIn',login.signIn);
 
 module.exports = router;

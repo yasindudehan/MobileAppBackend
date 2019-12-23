@@ -1,33 +1,27 @@
-const bcrypt = require("bcryptjs");
-const Login = require("../models/login.model.js");
+const User = require("../models/user.model.js");
 
-exports.submit = (req,res) => {
-
-    
-    const login = new Login({
-
-        
-
-        Username: req.body.Username,
-        
-        
+exports.signUp = (req, res) => {
+  return new User({
+    Username: req.body.Username,
+    Password: req.body.Password
+  }).save().then(result => {
+    console.log(result);
+    return res.status(200).json({
+      message: "Login successfull"
     });
-/*	bcrypt.genSalt(10,(err,salt) => {
-         bcrypt.hash(login .password,salt,(err,hash) => {
-            if(err)
-                throw err;
-            login.password = hash;
-			login
-    .save()
-    .then(result => {
-      console.log(result);
-    })
-    .catch(err => console.log(err));
-  res.status(200).json({
-    message: "post your data"
-  });  
-*/
+  }).catch(err => console.log(err));
+};
 
-
-
-         }
+exports.signIn = (req, res) => {
+  return User.findOne({
+    Username: req.body.Username
+  }).exec().then(user => {
+    console.log(user);
+    return user.isValidPassword(req.body.Password).then(isValid => {
+      return res.status(200).json({
+        message: "Login successful",
+        success: isValid
+      });
+    });
+  }).catch(err => console.log(err));
+};
