@@ -19,6 +19,7 @@ userSchema.pre('save', async function (next) {
 
     if (!user.isModified('Password')) {
       next();
+
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -40,6 +41,6 @@ userSchema.methods.isValidPassword = async function (newPassword) {
   }
 };
 
-const User = mongoose.model("MobileUser", userSchema);
+const User = mongoose.model("users", userSchema);
 
 module.exports = User;

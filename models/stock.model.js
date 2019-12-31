@@ -10,10 +10,10 @@ const StockSchema = new Schema({
     distname: {type: String,required: true}, 
     dateandtime: {type: Date,required: true},
 
-    timestamps:{
+   /* timestamps:{
       type: Date,
       required: true,
-    },
+    },*/
     teapouch20: {
       name: { type: String, default: "tea pouch" },
       weight: { type: String, default: "20g" },

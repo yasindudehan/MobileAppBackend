@@ -1,10 +1,16 @@
-const Order = require("../models/order.model.js");
+ const Route = require("../models/route.model.js");
 const mongoose = require("mongoose");
 exports.submit = (req, res) => {
-  const order = new Order({
-   
-  });
-  order
+  const route = new Route({
+
+    _id: new mongoose.Types.ObjectId(),
+
+    areaName:req.body.areaName,
+    routeName: req.body.routeName,
+    customerName: req.body.customerName
+    
+ });
+  route
     .save()
     .then(result => {
       console.log(result);

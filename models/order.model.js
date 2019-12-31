@@ -7,7 +7,7 @@ const orderSchema = new Schema({
     type: String,
     required: true
   },
-  salesrepName: {
+  salesrepName: { 
     type: String
   },
   customerName: {

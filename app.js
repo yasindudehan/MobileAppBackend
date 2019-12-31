@@ -3,8 +3,8 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-// const orderRouter = require("./routes/order.routes");
-// const loginRouter = require("./routes/login.routes");
+const orderRouter = require("./routes/order.routes");
+const loginRouter = require("./routes/login.routes");
 const stockRouter = require("./routes/stock.routes");
 const routeRouter = require("./routes/route.routes");
 const imageRouter = require("./routes/image.routes");
@@ -40,8 +40,8 @@ app.use((req, res, next) => {
   }
   next();
 });
-// app.use("/login",loginRouter);
-// app.use("/order", orderRouter);
+ app.use("/login",loginRouter);
+ app.use("/order", orderRouter);
 app.use("/stock",stockRouter);
 app.use("/route",routeRouter);
 app.use("/image",imageRouter);
