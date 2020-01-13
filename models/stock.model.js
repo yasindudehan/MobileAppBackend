@@ -1,19 +1,26 @@
-const mongoose= require('mongoose');
-
+const mongoose = require("mongoose");
+const AutoIncrement = require("mongoose-sequence")(mongoose);
+mongoose.set("useCreateIndex", true);
 const Schema = mongoose.Schema;
-const StockSchema = new Schema({
+const StockSchema = new Schema(
+  {
+    _id: mongoose.Schema.Types.ObjectId,
 
-  _id: mongoose.Schema.Types.ObjectId,
+    stockno: { type: String },
+    repname: { type: String },
+    distname: { type: String },
+    dateandtime: { type: Date, default: Date.now },
 
-    stockno: { type: String, required: true}, 
-    repname: {type: String,required: true},   
-    distname: {type: String,required: true}, 
-    dateandtime: {type: Date,required: true},
 
    /* timestamps:{
       type: Date,
       required: true,
     },*/
+
+    timestamps: {
+      type: Date
+    },
+
     teapouch20: {
       name: { type: String, default: "tea pouch" },
       weight: { type: String, default: "20g" },
@@ -196,10 +203,15 @@ const StockSchema = new Schema({
       qut: { type: Number, required: true, default: 0 },
       price: { type: Number, required: true, default: 0 }
     },
+    totalValue: {
+      type: Number,
+
+      default: ""
+    }
   },
   {
-    timestamps:true
+    timestamps: true
   }
-  );
-
-  module.exports = mongoose.model("stocks", StockSchema);
+);
+StockSchema.plugin(AutoIncrement, { inc_field: "stockno " });
+module.exports = mongoose.model("stocks", StockSchema);
