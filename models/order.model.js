@@ -1,22 +1,18 @@
 const mongoose = require("mongoose");
-const AutoIncrement = require("mongoose-sequence")(mongoose);
-mongoose.set("useCreateIndex", true);
+
 const Schema = mongoose.Schema;
 const orderSchema = new Schema({
   _id: mongoose.Schema.Types.ObjectId,
   Invoiceno: {
     type: String,
-
-    default: ""
+    required: true
   },
-  salesrepName: {
-    type: String,
-    default: ""
+  salesrepName: { 
+    type: String
   },
   customerName: {
     type: String,
-
-    default: ""
+    required: true
   },
 
   teapouch20: {
@@ -197,7 +193,7 @@ const orderSchema = new Schema({
     qut: { type: Number, required: true, default: 0 },
     price: { type: Number, required: true, default: 0 }
   },
-  teabasket2: {
+  teabasket2: { 
     name: { type: String, required: true, default: "Tea Basket BP-l" },
     weight: { type: String, required: true, default: "4kg" },
     qut: { type: Number, required: true, default: 0 },
@@ -206,13 +202,11 @@ const orderSchema = new Schema({
 
   totalValue: {
     type: Number,
-
-    default: ""
+    required: true
   },
   orderDate: {
     type: Date,
-    default: Date.now
+    default: Date.now()
   }
 });
-orderSchema.plugin(AutoIncrement, { inc_field: " Invoiceno " });
 module.exports = mongoose.model("Order", orderSchema);
