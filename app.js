@@ -11,6 +11,7 @@ const imageRouter = require("./routes/image.routes");
 const distRouter = require("./routes/dist.route");
 /*const custRouter = require("./routes/cust.route");*/
 const repRouter = require("./routes/rep.route");
+const mailRouter = require("./routes/mail.routes");
 
 const app = express();
 
@@ -48,6 +49,7 @@ app.use("/image",imageRouter);
 app.use("/dist",distRouter);
 /*app.use("/cust",custRouter);*/  
  app.use("/rep",repRouter);
+ app.use("/mail",mailRouter);
 
 app.use((req, res, next) => {
   const error = new Error("404 Not found");
