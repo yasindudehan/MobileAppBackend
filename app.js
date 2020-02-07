@@ -9,7 +9,7 @@ const stockRouter = require("./routes/stock.routes");
 const routeRouter = require("./routes/route.routes");
 const imageRouter = require("./routes/image.routes");
 const distRouter = require("./routes/dist.route");
-const custRouter = require("./routes/cust.route");
+/*const custRouter = require("./routes/cust.route");*/
 const repRouter = require("./routes/rep.route");
 
 const app = express();
@@ -46,7 +46,7 @@ app.use("/stock",stockRouter);
 app.use("/route",routeRouter);
 app.use("/image",imageRouter);
 app.use("/dist",distRouter);
-app.use("/cust",custRouter);  
+/*app.use("/cust",custRouter);*/  
  app.use("/rep",repRouter);
 
 app.use((req, res, next) => {

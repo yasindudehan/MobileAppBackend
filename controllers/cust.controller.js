@@ -6,3 +6,4 @@ exports.getAll = (req, res) => {
         message: docs
     }));
 }
+
