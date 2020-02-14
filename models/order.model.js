@@ -249,5 +249,5 @@ const orderSchema = new Schema({
     default: Date.now
   }
 });
-orderSchema.plugin(AutoIncrement, { inc_field: " Invoiceno " });
+orderSchema.plugin(AutoIncrement, { inc_field: "Invoiceno" });
 module.exports = mongoose.model("Order", orderSchema);

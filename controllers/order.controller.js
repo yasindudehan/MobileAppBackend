@@ -126,7 +126,11 @@ exports.submit = (req, res) => {
     name: req.body.name,
     weight: req.body.weight,
     qut: req.body.qut,
-    price: req.body.price
+    price: req.body.price,
+    Latitude:req.body.Latitude,
+    Longitude:req.body.Longitude,
+    pay_type:req.body.pay_type,
+    CustomerAddress:req.body.CustomerAddress,
   });
   order
     .save()
