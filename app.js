@@ -1,15 +1,15 @@
 const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
+const mongoose = require("mongoose"); 
 
 const orderRouter = require("./routes/order.routes");
 const loginRouter = require("./routes/login.routes");
-const stockRouter = require("./routes/stock.routes");
-const routeRouter = require("./routes/route.routes");
-const imageRouter = require("./routes/image.routes");
+const stockRouter = require("./routes/stock.routes");  
+const routeRouter = require("./routes/route.routes"); 
+const imageRouter = require("./routes/image.routes");  
 const distRouter = require("./routes/dist.route");
-/*const custRouter = require("./routes/cust.route");*/
+const custRouter = require("./routes/cust.route");
 const repRouter = require("./routes/rep.route");
 const mailRouter = require("./routes/mail.routes");
 
@@ -41,15 +41,15 @@ app.use((req, res, next) => {
   }
   next();
 });
- app.use("/login",loginRouter);
- app.use("/order", orderRouter);
+app.use("/login",loginRouter);
+app.use("/order", orderRouter);
 app.use("/stock",stockRouter);
 app.use("/route",routeRouter);
 app.use("/image",imageRouter);
 app.use("/dist",distRouter);
-/*app.use("/cust",custRouter);*/  
- app.use("/rep",repRouter);
- app.use("/mail",mailRouter);
+app.use("/cust",custRouter); 
+app.use("/rep",repRouter);
+app.use("/mail",mailRouter);
 
 app.use((req, res, next) => {
   const error = new Error("404 Not found");

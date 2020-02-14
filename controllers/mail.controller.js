@@ -7,7 +7,7 @@ exports.submit = (req, res) => {
 
     senderName:req.body.senderName,
     receiverName: req.body.receiverName,
-    mailContent: req.body.contentName
+    mailContent: req.body.mailContent
     
  });
   route

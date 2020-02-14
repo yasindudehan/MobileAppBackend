@@ -7,6 +7,8 @@ exports.signIn = (req, res) => {
   return User.findOne({
     Username: req.body.Username
   }).exec().then(user => {
+
+    
     console.log(user);
 
    
