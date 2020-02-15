@@ -127,10 +127,10 @@ exports.submit = (req, res) => {
     weight: req.body.weight,
     qut: req.body.qut,
     price: req.body.price,
-    Latitude:req.body.Latitude,
-    Longitude:req.body.Longitude,
-    pay_type:req.body.pay_type,
-    CustomerAddress:req.body.CustomerAddress,
+    Latitude: req.body.Latitude,
+    Longitude: req.body.Longitude,
+    pay_type: req.body.pay_type,
+    CustomerAddress: req.body.CustomerAddress
   });
   order
     .save()
@@ -146,15 +146,14 @@ exports.submit = (req, res) => {
     message: "post your data"
   });
 };
-exports.getting=(req,res)=>{
-        Order.find()
+exports.getting = (req, res) => {
+  Order.find()
 
-         .then(customers => {
+    .then(customers => {
       res.status(200).json(customers);
     })
 
     .catch(err => {
       res.status(400).json(err);
     });
-
 };

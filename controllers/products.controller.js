@@ -1,23 +1,18 @@
 const Product = require("../models/products.model");
 const mongoose = require("mongoose");
-exports.getproduct=(req,res)=>{
-        Product.find()
+exports.getproduct = (req, res) => {
+  Product.find({}, { __v: 0, _id: 0 })
 
-         .then(products => {
+    .then(products => {
       res.status(200).json(products);
     })
 
     .catch(err => {
       res.status(400).json(err);
     });
-
 };
 exports.submit = (req, res) => {
-  const  product= new Product({
-    
-
- 
-
+  const product = new Product({
     teapouch20: req.body.teapouch20,
     teapouch50: req.body.teapouch50,
     teapouch100: req.body.teapouch100,
@@ -41,8 +36,7 @@ exports.submit = (req, res) => {
     teabulk6: req.body.teabulk6,
     teabottle: req.body.teabottle,
     teabasket1: req.body.teabasket1,
-    teabasket2: req.body.teabasket2,
-  
+    teabasket2: req.body.teabasket2
   });
   product
     .save()
