@@ -1,6 +1,7 @@
-const User = require("../models/user.model.js");
-
-
+const Rep = require('../models/rep.model');
+const Dist = require('../models/dist.model')
+const bcrypt =require("bcryptjs");
+/* 
 
 exports.signIn = (req, res) => {
   return User.findOne({
@@ -17,4 +18,54 @@ exports.signIn = (req, res) => {
       });
     });
   }).catch(err => console.log(err));
+};
+User.findOne({username}).then(user=>{
+  //find if username exists
+  if(!user){
+      return res.status(404).json({incorrect: "Incorrect Username or password"});
+  } */
+  exports.signIn = (req, res) => {
+    const username =req.body.username;
+    const password =req.body.password;
+    Rep.findOne({userName:username,status:"active"}).then(user=>{
+      if(!user){
+        Dist.findOne({userName:username,status:"active"}).then(dist=>{
+            if(!dist){
+                return res.status(404).json({incorrect: "Incorrect Username or password"});
+            }else{            
+            bcrypt.compare(password,dist.password).then(isMatch=>{
+                if(isMatch){
+                  return res.status(200).json({repordist:"1"});
+                }else{
+                    return res
+                    .status(400)
+                    .json({incorrect: "Incorrect Username or password"});
+                }
+            }).catch(err=>{
+          console.error("error found3!!!"+err);
+        });
+      }       
+    }).catch(err=>{
+      console.error("error found4!!!"+err);
+    })
+  } 
+      else{
+      
+      bcrypt.compare(password,user.password).then(isMatch=>{
+          if(isMatch){
+            return res.status(200).json({repordist:"0"});
+          }else{
+              return res
+              .status(400)
+              .json({incorrect: "Incorrect Username or password"});
+          }
+      }).catch(err=>{
+        console.error("error found2!!!"+err);
+      });
+    }
+  }).catch(err=>{
+    console.error("error found1!!!"+err);
+  });
+  
+  
 };

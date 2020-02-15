@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+/* const mongoose = require('mongoose');
 
 const Schema=mongoose.Schema;
 const distributorSchema = new Schema({
@@ -44,4 +44,60 @@ const distributorSchema = new Schema({
     }
 );
 const Distributor = mongoose.model('distributors',distributorSchema);
-module.exports = Distributor;
+module.exports = Distributor; */
+const mongoose = require('mongoose');
+const Schema=mongoose.Schema;
+const distributorSchema = new Schema({
+    
+    userName:{
+        type : String,
+        required :true,
+        trim : true,
+        lowercase:true,
+        unique : true,
+    },
+    fullName:{
+        type : String,
+        required : true,
+    },
+    warehouse:{
+        type : String,
+        required : true,
+    },
+    area:{
+        type : String,
+        required : true,
+    },
+    address:{
+        type : String,
+        required : true,
+
+    },
+    phoneNo:{
+        type : String,
+        required : true,
+    },
+    email:{
+        type : String,
+    },
+    password:{
+        type : String,
+        required : true
+    },
+     status :{
+         type:String,           
+         default:"active"
+     },
+     isLogin :{
+         type:Boolean,
+         default:true
+
+     } 
+    
+},
+     {
+     timestamps : true
+     }
+);
+const Distributor = mongoose.model('distributors',distributorSchema);
+module.exports = Distributor
