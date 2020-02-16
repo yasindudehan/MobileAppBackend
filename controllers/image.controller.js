@@ -4,8 +4,10 @@ const fs = require('fs')
 
 exports.submit = (req, res) => {
   const binaryData = new Buffer(req.body.image, 'base64');
-  
-  fs.writeFile(`./uploads/${req.body.imageName}.${req.body.imageExt}`, binaryData, err => {
+  if (!fs.existsSync(`./uploads/${req.body.repName}`)){
+    fs.mkdirSync(`./uploads/${req.body.repName}`);
+}
+  fs.writeFile(`./uploads/${req.body.repName}/${req.body.imageName}.${req.body.imageExt}`, binaryData, err => {
     if(err) {
       console.log(err)
       res.status(400).json({
@@ -25,3 +27,7 @@ exports.submit = (req, res) => {
     }
   })
 };
+exports.getimage=(req,res)=>{
+  res.sendFile("sign.png",{ root: `uploads/${req.query.repName}` });
+  
+} 
