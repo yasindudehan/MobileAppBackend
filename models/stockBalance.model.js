@@ -22,15 +22,15 @@ const StockBalanceSchema = new Schema(
     teapouch20: {
       name: { type: String, default: "tea pouch" },
       weight: { type: String, default: "20g" },
-      qut: { type: Number, default: "" },
-      price: { type: Number, default: "" },
+      qut: { type: Number, default: 0 },
+      price: { type: Number, default: 0 },
       rate: { type: Number, required: true, default: 20 }
     },
     teapouch50: {
       name: { type: String, default: "tea pouch" },
       weight: { type: String, default: "50g" },
-      qut: { type: Number, default: "" },
-      price: { type: Number, default: "" },
+      qut: { type: Number, default: 0 },
+      price: { type: Number, default: 0 },
       rate: { type: Number, required: true, default: 50 }
     },
     teapouch100: {
@@ -232,7 +232,8 @@ const StockBalanceSchema = new Schema(
       type: Number,
 
       default: ""
-    }
+    },
+    order: [{ type: mongoose.Schema.Types.ObjectId, ref: "Order" }]
   },
   {
     timestamps: true

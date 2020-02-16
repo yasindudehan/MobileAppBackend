@@ -9,6 +9,10 @@ const orderSchema = new Schema({
     type: String,
     default: ""
   },
+  distName: {
+    type: String,
+    default: ""
+  },
   customerName: {
     type: String,
     default: ""
@@ -247,7 +251,8 @@ const orderSchema = new Schema({
   orderDate: {
     type: Date,
     default: Date.now
-  }
+  },
+  stockBalance: [{ type: mongoose.Schema.Types.ObjectId, ref: "StockBalnace" }]
 });
-orderSchema.plugin(AutoIncrement, { inc_field: "Invoiceno" });
+orderSchema.plugin(AutoIncrement, { inc_field: " Invoiceno ", unique: true });
 module.exports = mongoose.model("Order", orderSchema);
