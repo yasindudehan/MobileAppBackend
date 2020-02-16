@@ -1,4 +1,5 @@
 const Order = require("../models/order.model.js");
+const StockBalance = require("../models/stockBalance.model.js");
 const mongoose = require("mongoose");
 exports.submit = (req, res) => {
   const order = new Order({
@@ -130,12 +131,13 @@ exports.submit = (req, res) => {
     Latitude: req.body.Latitude,
     Longitude: req.body.Longitude,
     pay_type: req.body.pay_type,
-    CustomerAddress: req.body.CustomerAddress
+    CustomerAddress: req.body.CustomerAddress,
+    distName: req.body.distName
   });
   order
     .save()
     .then(result => {
-      console.log(result);
+      console.log("orderSubmit");
       //return res.status(200).json(result);
     })
     .catch(err => {
@@ -154,6 +156,24 @@ exports.getting = (req, res) => {
     })
 
     .catch(err => {
+      res.status(400).json(err);
+    });
+};
+exports.findstockorder = (req, res) => {
+  const repName = req.body.salesrepName;
+  StockBalance.findOne({ repname: repName })
+    .then(rep => {
+      StockBalance.find({}, { _id: 1 })
+        .then(order => {
+          res.status(200).json(order);
+        })
+        .catch(err => {
+          console.log("what error" + err);
+          res.status(400).json(err);
+        });
+    })
+    .catch(err => {
+      console.log("what error2" + err);
       res.status(400).json(err);
     });
 };

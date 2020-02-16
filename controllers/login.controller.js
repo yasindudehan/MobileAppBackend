@@ -87,3 +87,13 @@ exports.repInfo = (req, res) => {
       res.status(400).json(err);
     });
 };
+exports.distInfo = (req, res) => {
+  const username = req.body.userName;
+  Dist.find({ userName: username }, { _id: 0, salesrep: 1, area: 1 })
+    .then(rep => {
+      res.status(201).json(rep);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+};
