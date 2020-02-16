@@ -15,7 +15,7 @@ exports.view = (req, res) => {
 exports.select = (req, res) => {
   route = req.body.route;
 
-  Customer.find({ route: route }, { _id: 0, shop: 1, area: 1 })
+  Customer.find({ route: route }, { _id: 0, shop: 1, area: 1,email:1 })
 
     .then(customers => {
       res.status(201).json(customers);
