@@ -141,60 +141,61 @@ exports.updatestock = (req, res) => {
   StockBalance.findOne({ _id: req.params.id }).then(stockbalance => {
     if (stockbalance) {
       (stockbalance.teapouch20.qut =
-        stockbalance.teapouch20.qut - req.body.teapouch20.qut),
+        Number(stockbalance.teapouch20.qut) - Number(req.body.teapouch20.qut)),
         (stockbalance.teapouch50.qut =
-          stockbalance.teapouch50.qut - req.body.teapouch50.qut),
-        (stockbalance.teapouch100.qut =
-          stockbalance.teapouch100.qut - req.body.teapouch100.qut),
-        (stockbalance.teapouch200.qut =
-          stockbalance.teapouch200.qut - req.body.teapouch200.qut),
-        (stockbalance.teapouch400.qut =
-          stockbalance.teapouch400.qut - req.body.teapouch400.qut),
-        (stockbalance.teapouch1kg1.qut =
-          stockbalance.teapouch1kg1.qut - req.body.teapouch1kg1.qut),
-        (stockbalance.teapouch1kg2.qut =
-          stockbalance.teapouch1kg2.qut - req.body.teapouch1kg2.qut),
-        (stockbalance.teapouch1kg3.qut =
-          stockbalance.teapouch1kg3.qut - req.body.teapouch1kg3.qut),
-        (stockbalance.teapouch1kg4.qut =
-          stockbalance.teapouch1kg4.qut - req.body.teapouch1kg4.qut),
-        (stockbalance.teabag1.qut =
-          stockbalance.teabag1.qut - req.body.teabag1.qut),
-        (stockbalance.teabag2.qut =
-          stockbalance.teabag2.qut - req.body.teabag2.qut),
-        (stockbalance.teabag3.qut =
-          stockbalance.teabag3.qut - req.body.teabag3.qut),
-        (stockbalance.teasachet1.qut =
-          stockbalance.teasachet1.qut - req.body.teasachet1.qut),
-        (stockbalance.teasachet2.qut =
-          stockbalance.teasachet2.qut - req.body.teasachet2.qut),
-        (stockbalance.teasachet3.qut =
-          stockbalance.teasachet3.qut - req.body.teasachet3.qut),
-        (stockbalance.teabulk1.qut =
-          stockbalance.teabulk1.qut - req.body.teabulk1.qut),
-        (stockbalance.teabulk2.qut =
-          stockbalance.teabulk2.qut - req.body.teabulk2.qut),
-        (stockbalance.teabulk3.qut =
-          stockbalance.teabulk3.qut - req.body.teabulk3.qut),
-        (stockbalance.teabulk4.qut =
-          stockbalance.teabulk4.qut - req.body.teabulk4.qut),
-        (stockbalance.teabulk5.qut =
-          stockbalance.teabulk5.qut - req.body.teabulk5.qut),
-        (stockbalance.teabulk6.qut =
-          stockbalance.teabulk6.qut - req.body.teabulk6.qut),
-        (stockbalance.teabottle.qut =
-          stockbalance.teabottle.qut - req.body.teabottle.qut),
-        (stockbalance.teabasket1.qut =
-          stockbalance.teabasket1.qut - req.body.teabasket1.qut),
-        (stockbalance.teabasket2.qut =
-          stockbalance.teabasket2.qut - req.body.teabasket2.qut),
+          Number(stockbalance.teapouch50.qut) - Number(req.body.teapouch50.qut)),
+          (stockbalance.teapouch100.qut =
+            Number(stockbalance.teapouch100.qut) - Number(req.body.teapouch100.qut)),
+          (stockbalance.teapouch200.qut =
+            Number(stockbalance.teapouch200.qut) - Number(req.body.teapouch200.qut)),
+          (stockbalance.teapouch400.qut =
+            Number(stockbalance.teapouch400.qut) - Number(req.body.teapouch400.qut)),
+          (stockbalance.teapouch1kg1.qut =
+            Number(stockbalance.teapouch1kg1.qut) - Number(req.body.teapouch1kg1.qut)),
+          (stockbalance.teapouch1kg2.qut =
+            Number(stockbalance.teapouch1kg2.qut) - Number(req.body.teapouch1kg2.qut)),
+          (stockbalance.teapouch1kg3.qut =
+            Number(stockbalance.teapouch1kg3.qut) - Number(req.body.teapouch1kg3.qut)),
+          (stockbalance.teapouch1kg4.qut =
+            Number(stockbalance.teapouch1kg4.qut) - Number(req.body.teapouch1kg4.qut)),
+          (stockbalance.teabag1.qut =
+            Number(stockbalance.teabag1.qut) - Number(req.body.teabag1.qut)),
+          (stockbalance.teabag2.qut =
+            Number(stockbalance.teabag2.qut) - Number(req.body.teabag2.qut)),
+          (stockbalance.teabag3.qut =
+            Number(stockbalance.teabag3.qut) - Number(req.body.teabag3.qut)),
+          (stockbalance.teasachet1.qut =
+            Number(stockbalance.teasachet1.qut) - Number(req.body.teasachet1.qut)),
+          (stockbalance.teasachet2.qut =
+            Number(stockbalance.teasachet2.qut) - Number(req.body.teasachet2.qut)),
+          (stockbalance.teasachet3.qut =
+            Number(stockbalance.teasachet3.qut) - Number(req.body.teasachet3.qut)),
+          (stockbalance.teabulk1.qut =
+            Number(stockbalance.teabulk1.qut) - Number(req.body.teabulk1.qut)),
+          (stockbalance.teabulk2.qut =
+            Number(stockbalance.teabulk2.qut) - Number(req.body.teabulk2.qut)),
+          (stockbalance.teabulk3.qut =
+            Number(stockbalance.teabulk3.qut) - Number(req.body.teabulk3.qut)),
+          (stockbalance.teabulk4.qut =
+            Number(stockbalance.teabulk4.qut) - Number(req.body.teabulk4.qut)),
+          (stockbalance.teabulk5.qut =
+            Number(stockbalance.teabulk5.qut) - Number(req.body.teabulk5.qut)),
+          (stockbalance.teabulk6.qut =
+            Number(stockbalance.teabulk6.qut) - Number(req.body.teabulk6.qut)),
+          (stockbalance.teabottle.qut =
+            Number(stockbalance.teabottle.qut) - Number(req.body.teabottle.qut)),
+          (stockbalance.teabasket1.qut =
+            Number(stockbalance.teabasket1.qut) - Number(req.body.teabasket1.qut)),
+          (stockbalance.teabasket2.qut =
+            Number(stockbalance.teabasket2.qut) - Number(req.body.teabasket2.qut)),
+       
         stockbalance
           .save()
           .then(stockbalance => {
             res.json("update");
           })
           .catch(err => {
-            console.log(err);
+          
             res.status(400).send("Upadate not possible");
           });
     }

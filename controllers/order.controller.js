@@ -137,6 +137,7 @@ exports.submit = (req, res) => {
   order
     .save()
     .then(result => {
+      console.log(result);
       console.log("orderSubmit");
       //return res.status(200).json(result);
     })
@@ -152,6 +153,7 @@ exports.getting = (req, res) => {
   Order.find()
 
     .then(customers => {
+      console.log(order);
       res.status(200).json(customers);
     })
 
@@ -161,6 +163,12 @@ exports.getting = (req, res) => {
 };
 exports.findstockorder = (req, res) => {
   const repName = req.body.salesrepName;
+  var d=new Date(Date.now);
+  var n=new Date(Date.now);
+  d.setUTCHours(0,0,0,0);
+  n.setUTCHours(24,0,0,0);
+  
+
   StockBalance.findOne({ repname: repName })
     .then(rep => {
       StockBalance.find({}, { _id: 1 })
